@@ -1,11 +1,11 @@
 Package.describe({
     summary: "Login service for VKontakte accounts (https://vk.com)",
-    version: "0.2.2",
-    git: "https://github.com/Thundefined/meteor-accounts-vk",
-    name: "thundefined:accounts-vk"
+    version: "0.3.0",
+    git: "https://github.com/shubich/meteor-accounts-vk",
+    name: "shubich:accounts-vk"
 });
 
-Package.on_use(function(api) {
+Package.onUse(function(api) {
     api.versionsFrom('METEOR@0.9.0');
     api.use('accounts-base', ['client', 'server']);
     api.imply('accounts-base', ['client', 'server']);
@@ -19,14 +19,11 @@ Package.on_use(function(api) {
     api.use('http', ['server']);
     api.use('underscore', 'server');
     api.use('random', 'client');
-    api.use('templating', 'client');
 
     api.add_files("lib/accounts_vk.js");
     api.add_files('lib/vk_client.js', 'client');
     api.add_files('lib/vk_server.js', 'server');
 
     api.export('VK');
-
-    api.add_files(['lib/vk_configure.html', 'lib/vk_configure.js', 'lib/vk_styles.css'], 'client');
 
 });
